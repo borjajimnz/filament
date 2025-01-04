@@ -188,7 +188,7 @@ trait InteractsWithRecord
             return $label;
         }
 
-        $singularLabel = $this->getLivewire()?->getTable()?->getModelLabel() ?? $this->getModelLabel();
+        $singularLabel = $this->getLivewire()->getTable()->getModelLabel() ?? $this->getModelLabel();
 
         if (blank($singularLabel)) {
             return null;
