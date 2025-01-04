@@ -76,7 +76,7 @@ trait HasCellState
         }
 
         $state = ($this->getStateUsing !== null) ?
-            $this->evaluate($this->getStateUsing) :
+            $this->getStateUsing :
             $this->getStateFromRecord();
 
         if (is_string($state) && ($separator = $this->getSeparator())) {
