@@ -282,6 +282,40 @@ public function table(Table $table): Table
 }
 ```
 
+## Customizing the table footer
+
+You can add a footer to a table using the `$table->contentFooter()` method:
+
+```php
+use Filament\Tables\Table;
+
+public function table(Table $table): Table
+{
+    return $table
+        ->contentFooter(view('tables.footer'))
+        ->columns([
+            // ...
+        ]);
+}
+```
+
+Be careful because you'll need to add a `<td>` element in your view, with the number of columns.
+
+Note that this is not necessary if you're using `Split` layout for your columns.
+
+```php
+use Filament\Tables\Table;
+
+@props([
+    'columns',
+    'records'
+])
+
+<td colspan="{{ count($columns) }}">
+    Your footer content
+</td>
+```
+
 ## Deferring loading
 
 Tables with lots of data might take a while to load, in which case you can load the table data asynchronously using the `deferLoading()` method:
