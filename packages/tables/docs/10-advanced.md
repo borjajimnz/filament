@@ -304,8 +304,6 @@ Be careful because you'll need to add a `<td>` element in your view, with the nu
 Note that this is not necessary if you're using `Split` layout for your columns.
 
 ```php
-use Filament\Tables\Table;
-
 @props([
     'columns',
     'records'
