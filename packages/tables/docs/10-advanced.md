@@ -268,21 +268,7 @@ public function table(Table $table): Table
         ]);
 ```
 
-## Polling table content
-
-You may poll table content so that it refreshes at a set interval, using the `$table->poll()` method:
-
-```php
-use Filament\Tables\Table;
-
-public function table(Table $table): Table
-{
-    return $table
-        ->poll('10s');
-}
-```
-
-## Customizing the table footer
+## Add content to table footer
 
 You can add a footer to a table using the `$table->contentFooter()` method:
 
@@ -303,6 +289,7 @@ Be careful because you'll need to add a `<td>` element in your view, with the nu
 
 Note that this is not necessary if you're using `Split` layout for your columns.
 
+This is how your view should be structured:
 ```php
 @props([
     'columns',
@@ -310,8 +297,22 @@ Note that this is not necessary if you're using `Split` layout for your columns.
 ])
 
 <td colspan="{{ count($columns) }}">
-    Your footer content
+    Footer content
 </td>
+```
+
+## Polling table content
+
+You may poll table content so that it refreshes at a set interval, using the `$table->poll()` method:
+
+```php
+use Filament\Tables\Table;
+
+public function table(Table $table): Table
+{
+    return $table
+        ->poll('10s');
+}
 ```
 
 ## Deferring loading
