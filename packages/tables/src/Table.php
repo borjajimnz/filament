@@ -85,9 +85,15 @@ class Table extends ViewComponent
     {
         parent::setUp();
 
-        $this->emptyStateDescription(function (Table $table): ?string {
+        $configuredDescription = $this->getEmptyStateDescription() ?? null;
+
+        $this->emptyStateDescription(function (Table $table) use ($configuredDescription): ?string {
             if (! $table->hasAction('create')) {
-                return null;
+                return $configuredDescription ?? null;
+            }
+
+            if ($configuredDescription) {
+                return $configuredDescription;
             }
 
             return __('filament-tables::table.empty.description', [
