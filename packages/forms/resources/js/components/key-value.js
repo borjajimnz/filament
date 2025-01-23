@@ -60,6 +60,7 @@ export default function keyValueFormComponent({ state }) {
 
         reorderRows: function (event) {
             const rows = Alpine.raw(this.rows)
+
             this.rows = []
 
             const reorderedRow = rows.splice(event.oldIndex, 1)[0]
