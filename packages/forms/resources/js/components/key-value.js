@@ -45,7 +45,7 @@ export default function keyValueFormComponent({ state }) {
         addRow: function () {
             this.rows.push({ key: '', value: '' })
 
-            this.updateState()
+            this.shouldUpdateRows = false
         },
 
         deleteRow: function (index) {
@@ -60,7 +60,6 @@ export default function keyValueFormComponent({ state }) {
 
         reorderRows: function (event) {
             const rows = Alpine.raw(this.rows)
-
             this.rows = []
 
             const reorderedRow = rows.splice(event.oldIndex, 1)[0]
